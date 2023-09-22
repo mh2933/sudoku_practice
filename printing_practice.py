@@ -17,7 +17,6 @@ def print_board(bo):
             print("------------------------")
 
         for j in range(len(bo)):
-            
             if j % 3 == 0 and j != 0:
                 print(" | ", end="")
 
@@ -28,15 +27,26 @@ def print_board(bo):
         #print(len(bo[1]))                
 
 def print_zeros():
-    
     for x in range(len(board)):
         for y in range(len(board)):
             if board[x][y] == 0:
                 print(x,y)
 
-#def solve():                
+print_zeros()
+
+
+def possible_number():
+    #for i in range(len(board)):
+        if board[0][1] == 5:
+            return True
+        return False
+
+print(possible_number())
+    
+                     
     
 
-print_zeros()
+
+
 #print_board(board)
 
