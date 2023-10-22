@@ -1,5 +1,6 @@
 # empty.py kan användas som träningskod som raderas varje övningspass, 
 # testa din förståelse och radera efteråt.
+# Befintlig kod är genererad från phind.com AI
 
 grid = [[0 for _ in range(9)] for _ in range(9)]
 
