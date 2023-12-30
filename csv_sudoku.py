@@ -1,29 +1,26 @@
-board = [
-            [0,5,9,7,3,2,8,6,1],
-            [6,0,1,0,0,0,0,0,3],
-            [0,8,0,6,9,1,0,7,5],
-            [0,9,7,0,2,8,5,3,0],
-            [0,6,0,1,7,0,0,0,4],
-            [0,2,4,0,5,6,7,1,0],
-            [2,0,8,9,0,4,6,0,7],
-            [0,0,0,5,8,3,0,9,0],
-            [0,0,0,0,6,7,3,4,8]
-]
 
-# print_board() prints the sudoku when called and the parameter used then is the original variable name board
-def print_board(bo_parameter):
-    for i in range(len(bo_parameter)):
+# read the csv file and convert it to a list of lists and makes it to integers 
+def read_csv_and_split(csv_file):
+    with open(csv_file, "r") as f:
+        lines = f.readlines()
+    return [[int(num) for num in line.split(",")] for line in lines]    
+
+board =  read_csv_and_split("sudoku_practice/input_sudoku.csv")
+
+# print board prints the sudoku when called and the parameter used then is the original variable name board
+def print_board(board):
+    for i in range(len(board)):
         if i % 3 == 0 and i != 0:
             print("------------------------")
 
-        for j in range(len(bo_parameter)):
+        for j in range(len(board)):
             if j % 3 == 0 and j != 0:
                 print(" | ", end="")
 
             if j == 8:
-                print(bo_parameter[i][j])
+                print(board[i][j])
             else:
-                print(str(bo_parameter[i][j]) + " ", end="")    
+                print(str(board[i][j]) + " ", end="")    
         #print(len(bo_parameter[1]))                
 
 # print zeros row and column 
@@ -37,7 +34,8 @@ def print_zeros():
                 #return board[x][y]
     return zero_positions            
 
-# Find a possible number on a spot where a zero is
+#print_zeros()
+
 def possible_number(zero_positions):
     #zero_positions = print_zeros()
     for x, y in zero_positions:
@@ -46,7 +44,7 @@ def possible_number(zero_positions):
                 return (x, y, num)
     return None    
 
-# is_valid runs trough row, col and square to search for possible number
+
 def is_valid(board, row, col, num):
     for x in range(len(board[0])):
         if board[row][x] == num:
@@ -64,6 +62,12 @@ def is_valid(board, row, col, num):
 
     return True  
 
+def write_board_to_csv(board, file_name):
+  with open(file_name, 'w') as f:
+      for row in board:
+          f.write(','.join(map(str, row)) + '\n')
+
+
 # Get initial zero position
 zero_positions = print_zeros()
 
@@ -77,13 +81,11 @@ while zero_positions:
         board[x][y] = num
         zero_positions = print_zeros()
 
-    # If no number was found, print the board and break the loop
-    # A solution is found
+    # If no number was found, break the loop
     else:
         print_board(board)
+        write_board_to_csv(board, "sudoku_practice/solved_sudoku.csv")
         break
-
-
 
 
 

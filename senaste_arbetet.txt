@@ -1,0 +1,9 @@
+Här skrivs var jag var senast och vad som behöver göras.
+
+7/12
+Jag skapade csv_sudoku.py för att kunna läsa in filen ifrån en csv-fil. 
+
+Och skapade ett python script för terminalen sparad i min ubuntu mapp
+men dock så kan man inte skapa alla tre terminalkommandona 
+utan att skapa en input funktion eller ett shell script eller batch file
+.sh = shell script (#!/bin/bash)
