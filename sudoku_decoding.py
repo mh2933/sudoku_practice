@@ -51,6 +51,7 @@ def possible_number(zero_positions):
 # Check if a number is valid in the given position
 def is_valid(board, row, col, num):
   for i in range(len(board[0])):
+      print(f"board[row][i]: ({board[row][i]}, num:{num}")
       if board[row][i] == num:
           return False
 

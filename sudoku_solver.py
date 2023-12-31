@@ -122,7 +122,7 @@ def main():
             board[x][y] = num
             zero_positions = find_zeros()
         else:
-            break 
+            del zero_positions[0] 
            
     # Print the board to the console and to a CSV file     
     print_board(board)
