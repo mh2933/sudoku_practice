@@ -85,8 +85,8 @@ def main():
             if board[row][x] == num:
                 return False
             
-        for x in range(len(board)):
-            if board[x][col] == num:
+        for y in range(len(board)):
+            if board[y][col] == num:
                 return False
     
         start_row, start_col = row - row % 3, col - col % 3

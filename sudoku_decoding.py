@@ -6,7 +6,7 @@ def read_csv_and_split(csv_file):
       lines = f.readlines()
   return [[int(num) for num in line.split(",")] for line in lines]
 
-board = read_csv_and_split("sudoku_practice/input_sudoku.csv")
+board = read_csv_and_split("input_sudoku.csv")
 print("CSV file read successfully.\n")
 time.sleep(1)
 
@@ -52,8 +52,8 @@ def is_valid(board, row, col, num):
       if board[row][x] == num:
           return False
 
-  for x in range(len(board)):
-      if board[x][col] == num:
+  for y in range(len(board)):
+      if board[y][col] == num:
           return False
 
   start_row, start_col = row - row % 3, col - col % 3
