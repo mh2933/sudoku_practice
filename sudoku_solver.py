@@ -83,12 +83,12 @@ def main():
     
     # Check if a number is valid in the given position
     def is_valid(board, row, col, num):
-        for x in range(len(board[0])):
-            if board[row][x] == num:
+        for i in range(len(board[0])):
+            if board[row][i] == num:
                 return False
             
-        for y in range(len(board)):
-            if board[y][col] == num:
+        for i in range(len(board)):
+            if board[i][col] == num:
                 return False
     
         start_row, start_col = row - row % 3, col - col % 3

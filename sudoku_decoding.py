@@ -50,12 +50,12 @@ def possible_number(zero_positions):
 
 # Check if a number is valid in the given position
 def is_valid(board, row, col, num):
-  for x in range(len(board[0])):
-      if board[row][x] == num:
+  for i in range(len(board[0])):
+      if board[row][i] == num:
           return False
 
-  for y in range(len(board)):
-      if board[y][col] == num:
+  for i in range(len(board)):
+      if board[i][col] == num:
           return False
 
   start_row, start_col = row - row % 3, col - col % 3
@@ -87,6 +87,8 @@ while zero_positions:
      board[x][y] = num
      print(f"Valid number {num} found for position ({x},{y}). Board updated.\n")
      print_board(board)
+     print(f"len(board[0]){len(board[0])}")
+     print(f"len(board){len(board)}")
      time.sleep(1) # Pause for 1 second
      zero_positions = find_zeros()
  # If no number was found, remove the current zero position and continue with the next one
