@@ -71,13 +71,15 @@ def main():
                     zero_positions.append((x,y))
         return zero_positions            
     
-    # Checks possible numbers and searches for "Hidden Singles" 
     def possible_number(zero_positions):
-      for x, y in zero_positions:
-          possible_numbers = [num for num in range(1, 10) if is_valid(board, x, y, num)]
-          if len(possible_numbers) == 1:
-              return (x, y, possible_numbers[0])
-      return None     
+       for x, y in zero_positions:
+           possible_numbers = []
+           for num in range(1, 10):
+               if is_valid(board, x, y, num):
+                   possible_numbers.append(num)
+           if len(possible_numbers) == 1:
+               return (x, y, possible_numbers[0])
+       return None 
     
     # Check if a number is valid in the given position
     def is_valid(board, row, col, num):
