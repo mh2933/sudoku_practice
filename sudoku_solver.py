@@ -112,7 +112,8 @@ def main():
     # Loop until there are no more zero positions.                        #
     # Get a possible number for the first zero position.                  #
     # If a number was found, update the board and get new zero position.  #
-    # If no number was found, break the loop.                             #
+    # If no number was found, the else block is executed wich deletes     # 
+    # index[0] in the zero_position list.                                 #
     #######################################################################
     while zero_positions:
         result = possible_number(zero_positions)
@@ -121,8 +122,8 @@ def main():
             board[x][y] = num
             zero_positions = find_zeros()
         else:
-            del zero_positions[0]
-
+            break 
+           
     # Print the board to the console and to a CSV file     
     print_board(board)
     write_board_to_csv(board, "solved.csv")
