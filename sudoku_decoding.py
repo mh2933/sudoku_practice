@@ -4,9 +4,11 @@ import time
 def read_csv_and_split(csv_file):
   with open(csv_file, "r") as f:
       lines = f.readlines()
+      print(lines)
   return [[int(num) for num in line.split(",")] for line in lines]
 
 board = read_csv_and_split("input_sudoku.csv")
+print(board)
 print("CSV file read successfully.\n")
 time.sleep(1)
 
@@ -94,6 +96,7 @@ while zero_positions:
      zero_positions = find_zeros()
  # If no number was found, remove the current zero position and continue with the next one
  else:
-     del zero_positions[0]
+     #del zero_positions[0]
      print(f"No valid number found for position {zero_positions[0]}. Continuing with the next position...\n")
      time.sleep(1) # Pause for 1 second
+     break
